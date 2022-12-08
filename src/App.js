@@ -5,8 +5,8 @@ import Books from './components/Books';
 function App() {
   return (
     <>
-    <Navbar />
-    <Books />
+      <Navbar />
+      <Books />
     </>
   );
 }
