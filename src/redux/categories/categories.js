@@ -1,17 +1,17 @@
-import { Action } from "@remix-run/router";
-
+/* eslint-disable */
 const STATUS = 'status';
 const categoriesArray = [];
 
-export const completeStatus = () =>( {
- type : STATUS
-});
 
-const statusReducer = (state = categoriesArray , action ) => {
- if(action.type === STATUS) {
-  return 'Under construction';
- }
- return state;
+const statusReducer = (state = categoriesArray, action) => {
+  if (action.type === STATUS) {
+    return 'Under construction';
+  }
+  return state;
 };
+
+export const completeStatus = () => ({
+  type: STATUS,
+});
 
 export default statusReducer;
