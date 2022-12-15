@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import { useDispatch , useSelector } from 'react-redux';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { completeStatus } from '../redux/categories/categories';
 
-const Categories = () => {
+function Categories() {
   const status = useSelector((check) => check.status);
   console.log(status);
   const dispatch = useDispatch();
@@ -10,17 +10,17 @@ const Categories = () => {
   return (
     <>
       <button
-        type='button'
-        className='btn-sm btn-primary m-2'
+        type="button"
+        className="btn-sm btn-primary m-2"
         onClick={() => {
           dispatch(completeStatus());
         }}
       >
-        Check Status{' '}
+        Check Status
       </button>
       <p>{status}</p>
     </>
   );
-};
+}
 
 export default Categories;

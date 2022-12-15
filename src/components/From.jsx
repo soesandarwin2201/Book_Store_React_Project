@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { bookAdded } from '../redux/books/books';
-const Form = () => {
+
+function Form() {
   const dispatch = useDispatch();
   const [book, setBook] = useState({ title: '', author: '' });
 
@@ -16,7 +17,7 @@ const Form = () => {
       title: '',
       author: '',
     });
-  }
+  };
 
   const onchangeHandler = (e) => {
     setBook({
@@ -29,31 +30,31 @@ const Form = () => {
     <>
       <h1>Add a book</h1>
       <form onSubmit={submitHandler}>
-        <div className='row'>
-          <div className='col'>
+        <div className="row">
+          <div className="col">
             <input
-              type='text'
-              className='form-control'
-              placeholder='Book title'
-              name='title'
+              type="text"
+              className="form-control"
+              placeholder="Book title"
+              name="title"
               value={book.title}
               required
               onChange={onchangeHandler}
             />
           </div>
-          <div className='col'>
+          <div className="col">
             <input
-              type='text'
-              className='form-control'
-              placeholder='Author'
-              name='author'
+              type="text"
+              className="form-control"
+              placeholder="Author"
+              name="author"
               value={book.author}
               required
               onChange={onchangeHandler}
             />
           </div>
-          <div className='col'>
-            <button type='submit' className='btn btn-primary mb-2'>
+          <div className="col">
+            <button type="submit" className="btn btn-primary mb-2">
               Add a book
             </button>
           </div>
@@ -61,6 +62,6 @@ const Form = () => {
       </form>
     </>
   );
-};
+}
 
 export default Form;

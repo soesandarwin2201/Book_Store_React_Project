@@ -1,15 +1,15 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import Book from './book';
 import Form from './From';
-import { useSelector } from 'react-redux';
 
-const Books = () => {
+function Books() {
   const books = useSelector((state) => state.books);
   return (
     <>
-      <ul className='books'>
+      <ul className="books">
         {books.map((book) => (
-          <li key={book.id} >
+          <li key={book.id}>
             <Book book={book} />
           </li>
         ))}
@@ -17,6 +17,6 @@ const Books = () => {
       <Form />
     </>
   );
-};
+}
 
 export default Books;
