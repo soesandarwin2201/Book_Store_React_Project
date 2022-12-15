@@ -1,18 +1,29 @@
-import React, { Component } from 'react';
+/* eslint-disable react/prop-types */
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
+import { bookRemoved } from '../redux/books/books';
 
-class Book extends Component {
-
- render() { 
-  const { title , author } = this.props;
+function Book({ book }) {
+  const dispatch = useDispatch();
   return (
-    <>
     <section className="container">
-     <h2>{title}</h2>
-     <p>{author}</p>
+      <h2>{book.title}</h2>
+      <p>{book.author}</p>
+      <button
+        onClick={() => {
+          dispatch(bookRemoved(book.id));
+        }}
+        type="button"
+      >
+        Delete
+      </button>
     </section>
-    </>
   );
- }
 }
- 
+Book.prototype = {
+  title: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+};
 export default Book;

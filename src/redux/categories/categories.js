@@ -2,7 +2,6 @@
 const STATUS = 'status';
 const categoriesArray = [];
 
-
 const statusReducer = (state = categoriesArray, action) => {
   if (action.type === STATUS) {
     return 'Under construction';

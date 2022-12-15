@@ -4,8 +4,8 @@ import bookReducer from './books/books';
 import statusReducer from './categories/categories';
 
 const reducer = combineReducers({
-  bookReducer,
-  statusReducer,
+  books: bookReducer,
+  status: statusReducer,
 });
 
 const store = configureStore({ reducer });

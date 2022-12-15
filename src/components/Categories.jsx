@@ -1,11 +1,26 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { completeStatus } from '../redux/categories/categories';
 
-class Categories extends Component { 
- render() { 
+function Categories() {
+  const status = useSelector((check) => check.status);
+  console.log(status);
+  const dispatch = useDispatch();
+
   return (
-   <button>Check Status </button>
+    <>
+      <button
+        type="button"
+        className="btn-sm btn-primary m-2"
+        onClick={() => {
+          dispatch(completeStatus());
+        }}
+      >
+        Check Status
+      </button>
+      <p>{status}</p>
+    </>
   );
- }
 }
- 
+
 export default Categories;
