@@ -1,60 +1,54 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { bookAdded } from '../redux/books/books';
+import { addNewBook } from '../redux/books/books';
+import { addBooks } from '../redux/api';
 
 function Form() {
   const dispatch = useDispatch();
-  const [book, setBook] = useState({ title: '', author: '' });
+  const [title, setTitle] = useState('');
+  const [author, setAuthor] = useState('');
 
   const submitHandler = (e) => {
     e.preventDefault();
-    const newBook = {
-      ...book,
-      id: Math.random().toString(36).substring(2),
-    };
-    dispatch(bookAdded(newBook));
-    setBook({
-      title: '',
-      author: '',
-    });
-  };
-
-  const onchangeHandler = (e) => {
-    setBook({
-      ...book,
-      [e.target.name]: e.target.value,
-    });
+    dispatch(
+      addBooks({
+        item_id: Math.random().toString(36).substring(2),
+        title,
+        author,
+        category: 'fiction',
+      })
+    );
   };
 
   return (
     <>
       <h1>Add a book</h1>
       <form onSubmit={submitHandler}>
-        <div className="row">
-          <div className="col">
+        <div className='row'>
+          <div className='col'>
             <input
-              type="text"
-              className="form-control"
-              placeholder="Book title"
-              name="title"
-              value={book.title}
+              type='text'
+              className='form-control'
+              placeholder='Book title'
+              name='title'
+              value={title}
               required
-              onChange={onchangeHandler}
+              onChange={(e) => setTitle(e.target.value)}
             />
           </div>
-          <div className="col">
+          <div className='col'>
             <input
-              type="text"
-              className="form-control"
-              placeholder="Author"
-              name="author"
-              value={book.author}
+              type='text'
+              className='form-control'
+              placeholder='Author'
+              name='author'
+              value={author}
               required
-              onChange={onchangeHandler}
+              onChange={(e) => setAuthor(e.target.value)}
             />
           </div>
-          <div className="col">
-            <button type="submit" className="btn btn-primary mb-2">
+          <div className='col'>
+            <button type='submit' className='btn btn-primary mb-2'>
               Add a book
             </button>
           </div>
