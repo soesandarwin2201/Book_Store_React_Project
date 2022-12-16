@@ -3,7 +3,6 @@ import { getBookData, addBooks, removeBook } from '../api';
 
 const initialState = {
   books: [],
-  loading: true,
 };
 
 const booksSlice = createSlice({
