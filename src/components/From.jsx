@@ -1,31 +1,22 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { bookAdded } from '../redux/books/books';
+import { addBooks } from '../redux/api';
 
 function Form() {
   const dispatch = useDispatch();
-  const [book, setBook] = useState({ title: '', author: '' });
-
+  const [title, setTitle] = useState('');
+  const [author, setAuthor] = useState('');
   const submitHandler = (e) => {
     e.preventDefault();
-    const newBook = {
-      ...book,
-      id: Math.random().toString(36).substring(2),
-    };
-    dispatch(bookAdded(newBook));
-    setBook({
-      title: '',
-      author: '',
-    });
+    dispatch(
+      addBooks({
+        item_id: Math.random().toString(36).substring(2),
+        title,
+        author,
+        category: 'fiction',
+      })
+    );
   };
-
-  const onchangeHandler = (e) => {
-    setBook({
-      ...book,
-      [e.target.name]: e.target.value,
-    });
-  };
-
   return (
     <>
       <h1>Add a book</h1>
@@ -37,9 +28,9 @@ function Form() {
               className="form-control"
               placeholder="Book title"
               name="title"
-              value={book.title}
+              value={title}
               required
-              onChange={onchangeHandler}
+              onChange={(e) => setTitle(e.target.value)}
             />
           </div>
           <div className="col">
@@ -48,9 +39,9 @@ function Form() {
               className="form-control"
               placeholder="Author"
               name="author"
-              value={book.author}
+              value={author}
               required
-              onChange={onchangeHandler}
+              onChange={(e) => setAuthor(e.target.value)}
             />
           </div>
           <div className="col">

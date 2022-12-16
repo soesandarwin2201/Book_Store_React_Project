@@ -1,44 +1,28 @@
-/* eslint-disable */
-const ADD_BOOK = 'bookAdded';
-const REMOVE_BOOK = 'bookRemoved';
-const booksArray = [
-  {
-    id: '1',
-    title : 'Deep work',
-    Author : 'Soe Sandar Win'
-  },
-  {
-    id: '2',
-    title : 'Successful habit',
-    Author : 'Soe Moe Naing'
-  },
-  {
-    id:'3',
-    title : 'Billion Dollar app',
-    Author : 'Alyssa'
-  },
-];
+import { createSlice } from '@reduxjs/toolkit';
+import { getBookData, addBooks, removeBook } from '../api';
 
-export const bookAdded = (book) => ({
-  type: ADD_BOOK,
-  payload: book ,
-});
-
-export const bookRemoved = (id) => ({
-  type: REMOVE_BOOK,
-  id,
-});
-
-const bookReducer = (state = booksArray, action) => {
-  if (action.type === ADD_BOOK) {
-    return [...state, action.payload];
-  }
-  if (action.type === REMOVE_BOOK) {
-    return state.filter((book) => book.id !== action.id);
-  }
-  return state;
+const initialState = {
+  books: [],
 };
 
- export default bookReducer;
-
-
+const booksSlice = createSlice({
+  name: 'books',
+  initialState,
+  reducers: {},
+  extraReducers: (books) => {
+    books.addCase(getBookData.fulfilled, (state, action) => ({
+      ...state,
+      books: action.payload,
+    }));
+    books.addCase(addBooks.fulfilled, (state, action) => ({
+      ...state,
+      books: [...state.books, action.payload],
+    }));
+    books.addCase(removeBook.fulfilled, (state, action) => ({
+      ...state,
+      books: [...state.books.filter((book) => book.id !== action.payload)],
+    }));
+  },
+});
+// export const { addBooks } = booksSlice.actions;
+export default booksSlice.reducer;
