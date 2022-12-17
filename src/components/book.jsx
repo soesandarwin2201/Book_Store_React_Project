@@ -18,9 +18,9 @@ function Book({ book }) {
   };
 
   return (
-    <section className='container'>
-      <div class='row align-items-center book'>
-        <div class='col justify-content-center'>
+    <section className="container">
+      <div className="row align-items-center book">
+        <div className="col justify-content-center">
           <div className='title-gp'>
             <h5 className='category'>{book.category}</h5>
             <h3 className='title'>{book.title}</h3>

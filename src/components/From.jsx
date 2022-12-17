@@ -54,7 +54,7 @@ function Form() {
           </div>
           <div className='col'>
             <select
-              class='form-select'
+              className='form-select'
               aria-label='Default select example'
               name='category'
               value={category}

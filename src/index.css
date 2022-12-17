@@ -13,8 +13,8 @@
   background-color: #fff;
   margin-top: 5rem;
   margin-inline: 2rem;
-  width: 95Vw;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  width: 95vw;
+  box-shadow: rgba(100, 100, 111, 0.2) 0 7px 29px 0;
 }
 
 .navbar h1 {
@@ -23,13 +23,13 @@
   font-weight: 800;
 }
 
-.navbar{
+.navbar {
   font-size: 1rem;
   margin-inline: 2rem;
 }
 
 .user {
-  border: .5px solid #307bbe;
+  border: 0.5px solid #307bbe;
   width: 30px;
   height: 30px;
   border-radius: 50%;
@@ -80,9 +80,9 @@
   padding: 0;
   cursor: pointer;
   border-right: 2px solid #e8e8e8;
-  padding-right: .5rem;
+  padding-right: 0.5rem;
   font-size: 1rem;
-  margin-top: .8rem;
+  margin-top: 0.8rem;
   margin-right: 0.8rem;
   color: #8599c7;
 }
@@ -103,7 +103,7 @@
 }
 
 .percent {
-  color: #333333;
+  color: #333;
   font-weight: 400;
 }
 
@@ -135,7 +135,7 @@
 }
 
 .form {
-  border-top: .5px solid #7a7a7a;
+  border-top: 0.5px solid #7a7a7a;
   margin-inline: 4rem;
   margin-bottom: 2rem;
   padding-bottom: 3rem;
