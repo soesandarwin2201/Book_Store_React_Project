@@ -10,7 +10,7 @@ function App() {
     <div className='body-container'>
       <Navbar />
       <Routes>
-        <Route path="/categories" element={<Categories />} />
+        <Route path="/categories" element={<Categories  />} />
         <Route path="/" element={<Books />} />
       </Routes>
     </div>
