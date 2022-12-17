@@ -6,8 +6,8 @@ const bookUrl = `https://us-central1-bookstore-api-e63c8.cloudfunctions.net/book
 
 const formatedBooks = (data) =>
   Object.entries(data).map((arr) => {
-    const [id, [{ title, author }]] = arr;
-    return { id, title, author };
+    const [id, [{ title, author , category}]] = arr;
+    return { id, title, author , category };
   });
 
 export const getBookData = createAsyncThunk('books/getBookData', async () => {
